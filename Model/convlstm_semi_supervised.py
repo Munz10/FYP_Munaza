@@ -211,18 +211,84 @@ plt.ylabel('Loss')
 plt.legend()
 plt.show()
 
+from scipy.stats import entropy
+import matplotlib.pyplot as plt
 
 
-    # # Select k most uncertain samples based on entropy or margin of uncertainty
-    # uncertain_indices = uncertainty_sampling(unlabeled_predictions, method="entropy")
+# Active Learning
+def calculate_uncertainty(predictions):
+    # Calculate entropy of predictions
+    uncertainty = entropy(predictions.T)
+    return uncertainty
 
-    # X_active = X_unlabeled[uncertain_indices[:k]]
 
-    # # Manually label selected samples and add them to labeled data
-    # active_labels = ... # manual labeling process
+#Implementation of Active Learning Approach
 
-    # y_train_combined = np.concatenate((y_train_combined, active_labels))
-    # model.fit(X_train_combined, y_train_combined)
+# # Active learning loop
+# num_iterations = 30  # Example: number of active learning iterations
+# val_loss = []  # List to store validation loss
+# train_loss = []  # List to store training loss
+# mean_uncertainty = []  # List to store mean uncertainty
+#
+# for iteration in range(num_iterations):
+#     print(f"Iteration {iteration + 1}")
+#
+#     # Ensure X_train_combined and y_train_combined have the same number of samples
+#     print("len(X_train_combined) = ", len(X_train_combined), " len(y_train_combined) = ", len(y_train_combined))
+#     # assert len(X_train_combined) == len(y_train_combined), "Number of samples in X_train_combined and y_train_combined must match"
+#
+#     # Train the model
+#     history = model.fit(X_train_combined, y_train_combined, epochs=1, batch_size=32)
+#     train_loss.append(history.history['loss'][0])
+#
+#     # Manually evaluate on validation set
+#     if X_val is not None and y_val is not None:
+#         val_loss_epoch = model.evaluate(X_val, y_val, verbose=0)[0]  # Get validation loss
+#         val_loss.append(val_loss_epoch)
+#
+#     # Predict on unlabeled data
+#     unlabeled_predictions = model.predict(X_unlabeled)
+#
+#     # Calculate uncertainty
+#     uncertainty = calculate_uncertainty(unlabeled_predictions)
+#     mean_uncertainty.append(np.mean(uncertainty))
+#
+#     # Select top uncertain samples
+#     num_samples_to_label = 10  # Example: number of samples to label in each iteration
+#     top_uncertain_indices = np.argsort(uncertainty)[-num_samples_to_label:] % len(simulated_labels)
+#     samples_to_label = X_unlabeled[top_uncertain_indices]
+#
+#     # Query labels for selected samples (simulated or from an oracle)
+#     simulated_labels = np.random.randint(0, 2, size=num_samples_to_label)  # Simulated labels for demonstration
+#
+#     # Update labeled dataset
+#     X_train_combined = np.concatenate((X_train_combined, samples_to_label))
+#     y_train_combined = np.concatenate((y_train_combined, simulated_labels))
+#
+#     # Remove labeled samples from the unlabeled dataset
+#     X_unlabeled = np.delete(X_unlabeled, top_uncertain_indices, axis=0)
+#     # y_train_combined = np.delete(y_train_combined, top_uncertain_indices, axis=0)  # Remove corresponding labels
+#
+#     simulated_labels = np.delete(simulated_labels, top_uncertain_indices, axis=0)
+#
+# # Plot training and validation loss
+# plt.plot(train_loss, label='Training Loss')
+# if len(val_loss) > 0:
+#     plt.plot(val_loss, label='Validation Loss')
+# plt.xlabel('Iteration')
+# plt.ylabel('Loss')
+# plt.title('Training and Validation Loss over Iterations')
+# plt.legend()
+# plt.show()
+#
+# # Plot mean uncertainty
+# plt.plot(mean_uncertainty, label='Mean Uncertainty')
+# plt.xlabel('Iteration')
+# plt.ylabel('Mean Uncertainty')
+# plt.title('Mean Uncertainty over Iterations')
+# plt.legend()
+# plt.show()
+
 
 """9. Evaluate Performance:"""
 
