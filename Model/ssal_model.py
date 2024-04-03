@@ -516,7 +516,7 @@ y_pred_binary = np.where(y_pred > 0.5, 1, 0)  # Converting probabilities to bina
 conf_matrix = confusion_matrix(y_test_labeled, y_pred_binary)
 
 import matplotlib.pyplot as plt
-import seaborn as sns;
+import seaborn as sns
 sns.set()  # For a nicer confusion matrix visualization
 
 plt.figure(figsize=(10, 7))

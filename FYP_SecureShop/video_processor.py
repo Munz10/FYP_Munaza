@@ -1,3 +1,6 @@
+import shutil
+import subprocess
+
 import cv2
 import numpy as np
 import os
@@ -76,7 +79,14 @@ def save_annotated_video(video_path, predictions, threshold=0.7):
 
     # Ensure H.264 encoding
     converted_path = output_path.replace(".mp4", "_shoplift.mp4")
-    os.system(f"ffmpeg -i {output_path} -c:v libx264 -crf 23 -y {converted_path}")
+    ffmpeg_command = [
+        "ffmpeg",
+        "-i", output_path,
+        "-c:v", "libx264",
+        "-crf", "23",
+        "-y", converted_path
+    ]
+    subprocess.run(ffmpeg_command, check=True)  # check=True raises an exception on error
 
     # Delete the original annotated video file
     os.remove(output_path)
@@ -84,7 +94,7 @@ def save_annotated_video(video_path, predictions, threshold=0.7):
     # Create a copy named "display.mp4" outside the annotated directory
     display_video_path = "display.mp4"  # Directly in the project folder, or specify another path
     print("Absolute display video path:", os.path.abspath(display_video_path))
-    os.system(f"copy /Y {converted_path} {display_video_path}")  # Use copy /Y for Windows to overwrite without prompting
+    shutil.copyfile(converted_path, display_video_path)
 
     return converted_path, display_video_path
 
