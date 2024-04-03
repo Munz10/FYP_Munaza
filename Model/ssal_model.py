@@ -250,7 +250,7 @@ normal_test = load_video_paths('/content/drive/MyDrive/FYP - Munz/Dataset/Test12
 
 shoplifting_train = load_video_paths('/content/drive/MyDrive/FYP - Munz/Dataset/Test123/shoplifting_train',True, 'Shoplifting')
 
-shoplifting_val =  load_video_paths('/content/drive/MyDrive/FYP - Munz/Dataset/Test123/shoplifting_val',True, 'Shoplifting')
+shoplifting_val = load_video_paths('/content/drive/MyDrive/FYP - Munz/Dataset/Test123/shoplifting_val',True, 'Shoplifting')
 
 shoplifting_test = load_video_paths('/content/drive/MyDrive/FYP - Munz/Dataset/Test123/shoplifting_test',True, 'Shoplifting')
 
@@ -516,7 +516,8 @@ y_pred_binary = np.where(y_pred > 0.5, 1, 0)  # Converting probabilities to bina
 conf_matrix = confusion_matrix(y_test_labeled, y_pred_binary)
 
 import matplotlib.pyplot as plt
-import seaborn as sns; sns.set()  # For a nicer confusion matrix visualization
+import seaborn as sns;
+sns.set()  # For a nicer confusion matrix visualization
 
 plt.figure(figsize=(10, 7))
 sns.heatmap(conf_matrix, annot=True, fmt="d", cmap="Blues", xticklabels=["Normal", "Shoplifting"], yticklabels=["Normal", "Shoplifting"])
