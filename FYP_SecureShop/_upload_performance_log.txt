@@ -1,0 +1,57 @@
+INFO:root:CPU Usage: 13.6%
+INFO:root:Memory Usage: 82.5%
+INFO:root:CPU Usage: 0.0%
+INFO:root:Memory Usage: 84.1%
+INFO:root:Processing Time: 0 seconds
+INFO:root:CPU Usage: 0.0%
+INFO:root:Memory Usage: 84.1%
+INFO:root:CPU Usage: 0.0%
+INFO:root:Memory Usage: 84.8%
+INFO:root:Processing Time: 0 seconds
+INFO:root:Latency : 5.096283197402954 seconds
+INFO:root:CPU Usage: 0.0%
+INFO:root:Memory Usage: 84.9%
+INFO:root:CPU Usage: 7.0%
+INFO:root:Memory Usage: 86.0%
+INFO:root:CPU Usage: 0.0%
+INFO:root:Memory Usage: 86.5%
+INFO:root:CPU Usage: 0.0%
+INFO:root:Memory Usage: 85.5%
+INFO:root:CPU Usage: 22.1%
+INFO:root:Memory Usage: 80.6%
+INFO:root:CPU Usage: 0.0%
+INFO:root:Memory Usage: 79.2%
+INFO:root:CPU Usage: 0.0%
+INFO:root:Memory Usage: 79.2%
+INFO:root:CPU Usage: 0.0%
+INFO:root:Memory Usage: 72.2%
+INFO:root:CPU Usage: 0.0%
+INFO:root:Memory Usage: 72.7%
+INFO:root:Processing Time: 0 seconds
+INFO:root:CPU Usage: 0.0%
+INFO:root:Memory Usage: 72.4%
+INFO:root:CPU Usage: 0.0%
+INFO:root:Memory Usage: 73.5%
+INFO:root:Processing Time: 0 seconds
+INFO:root:Latency : 8.179701805114746 seconds
+INFO:root:CPU Usage: 0.0%
+INFO:root:Memory Usage: 73.5%
+INFO:root:CPU Usage: 14.3%
+INFO:root:Memory Usage: 82.2%
+INFO:root:CPU Usage: 0.0%
+INFO:root:Memory Usage: 84.2%
+INFO:root:CPU Usage: 0.0%
+INFO:root:Memory Usage: 84.3%
+INFO:root:CPU Usage: 0.0%
+INFO:root:Memory Usage: 84.4%
+INFO:root:Processing Time: 0 seconds
+INFO:root:CPU Usage: 0.0%
+INFO:root:Memory Usage: 84.9%
+INFO:root:CPU Usage: 0.0%
+INFO:root:Memory Usage: 85.5%
+INFO:root:CPU Usage: 0.0%
+INFO:root:Memory Usage: 85.5%
+INFO:root:Processing Time: 0 seconds
+INFO:root:Latency : 6.442046165466309 seconds
+INFO:root:CPU Usage: 0.0%
+INFO:root:Memory Usage: 85.9%

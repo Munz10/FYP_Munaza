@@ -1,6 +1,9 @@
+import logging
+
 import streamlit as st
 import os
 import tempfile
+import time
 from model_loader import load_model
 from email_sender import send_email_with_attachment
 from video_processor import preprocess_video, save_annotated_video
@@ -29,6 +32,7 @@ def upload_video():
 
                 print(display_video_path)
 
+                detection_time = time.time()
                 shoplifting_detected = any(pred[0] > 0.7 for pred in predictions)  # Assuming binary classification [0, 1]
 
                 if shoplifting_detected:
@@ -40,6 +44,11 @@ def upload_video():
 
                     # Display success message in Streamlit and show the video
                     st.success("Shoplifting detected. An alert email has been sent.")
+                    alert_time = time.time()
+                    latency = alert_time - detection_time
+                    print(f"Latency: {latency} seconds")
+                    logging.basicConfig(filename='_upload_performance_log.txt', level=logging.INFO)
+                    logging.info(f"Latency : {latency} seconds")
 
                 else:
                     # Optionally handle the "Normal" case, e.g., display a different message
@@ -50,4 +59,3 @@ def upload_video():
                 st.success("Video processed and predictions visualized!")
             except Exception as e:
                 st.error(f"An error occurred: {e}")
-

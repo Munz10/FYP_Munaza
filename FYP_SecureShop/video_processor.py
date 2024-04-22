@@ -1,14 +1,17 @@
+import logging
 import shutil
 import subprocess
-
 import cv2
 import numpy as np
 import os
 import tempfile
 import datetime
+import time
 
 OUTPUT_DIRECTORY = "detected_videos"
+elapsed_time = 0
 def preprocess_video(uploaded_file):
+    start_time = time.time()
     with tempfile.NamedTemporaryFile(delete=False, suffix=".mp4") as tmpfile:
         tmpfile.write(uploaded_file.read())
         video_path = tmpfile.name
@@ -40,7 +43,8 @@ def preprocess_video(uploaded_file):
             sequence = np.array(sequence).astype('float32') / 255.0
             sequence = np.expand_dims(sequence, axis=-1)
             video_sequences.append(sequence)
-
+    elapsed_time = time.time() - start_time
+    print(f"Processing Time: {elapsed_time} seconds")
     return np.array(video_sequences)
 
 def save_annotated_video(video_path, predictions, threshold=0.7):
@@ -95,6 +99,9 @@ def save_annotated_video(video_path, predictions, threshold=0.7):
     display_video_path = "display.mp4"  # Directly in the project folder, or specify another path
     print("Absolute display video path:", os.path.abspath(display_video_path))
     shutil.copyfile(converted_path, display_video_path)
+
+    logging.basicConfig(filename='_upload_performance_log.txt', level=logging.INFO)
+    logging.info(f"Processing Time: {elapsed_time} seconds")
 
     return converted_path, display_video_path
 

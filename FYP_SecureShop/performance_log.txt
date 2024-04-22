@@ -1,0 +1,18 @@
+INFO:root:Processing Time: 0 seconds
+INFO:root:CPU Usage: 27.8%
+INFO:root:Memory Usage: 86.7%
+INFO:root:Processing Time: 0 seconds
+INFO:root:CPU Usage: 0.0%
+INFO:root:Memory Usage: 86.6%
+INFO:root:Processing Time: 0 seconds
+INFO:root:CPU Usage: 0.0%
+INFO:root:Memory Usage: 87.5%
+INFO:root:Processing Time: 0 seconds
+INFO:root:CPU Usage: 16.5%
+INFO:root:Memory Usage: 82.7%
+INFO:root:Processing Time: 0 seconds
+INFO:root:CPU Usage: 0.0%
+INFO:root:Memory Usage: 71.7%
+INFO:root:Processing Time: 0 seconds
+INFO:root:CPU Usage: 19.0%
+INFO:root:Memory Usage: 82.9%
